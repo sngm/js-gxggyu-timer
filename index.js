@@ -31,26 +31,6 @@ function timer_2_action() {
     `<span>` + `00` + `</span>` + `:` + `<span>` + timer_2 + `</span>`;
 }
 
-// function start_timer_1() {
-//   let timer_1_interval = setInterval(function() {
-//     if (timer_1 > 0) {
-//       timer_1_action();
-//     } else {
-//       clearInterval(timer_1_interval);
-//     }
-//   }, 1000);
-// }
-
-// function start_timer_2() {
-//   let timer_2_interval = setInterval(function() {
-//     if (timer_2 > 0) {
-//       timer_2_action();
-//     } else {
-//       clearInterval(timer_2_interval);
-//     }
-//   });
-// }
-
 function start_timers() {
   let timers_interval = setInterval(function() {
     if (timer_1 > 0) {
@@ -71,30 +51,6 @@ function start_timers() {
     }
   }, 1000);
 }
-
-// function start_round() {
-//   let r = 2;
-//   for (let i = 0; i < r; i++) {
-//     if (timer_1 > 0 && i === 0) {
-//       console.log('Runde 1 startet', i);
-//       start_timer_1();
-//     }
-//     if (timer_1 > 0 && i > 0) {
-//       console.log('Runde X startet', i);
-//       setTimeout(function() {
-//         start_timer_1();
-//       }, 30000);
-//     }
-//     if (timer_1 === 1 && timer_2 > 0) {
-//       clearInterval(timer_1_interval);
-//       start_timer_2();
-//     }
-//     if (timer_2 <= 1) {
-//       console.log('else');
-//       clearInterval(timer_2_interval);
-//     }
-//   }
-// }
 
 startbutton.addEventListener(
   'click',

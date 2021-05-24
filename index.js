@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 let timer_1 = 12;
 let timer_2 = 10;
 let startbutton = document.getElementById('startBtn');
+let soundbutton = document.getElementById('soundBtn');
 
 // Write Javascript code!
 const headlineDiv = document.getElementById('headline1');
@@ -56,6 +57,21 @@ startbutton.addEventListener(
   'click',
   function() {
     start_timers();
+  },
+  false
+);
+
+// Add Audio to the show
+let x = document.getElementById('timerAudio');
+
+function playAudio() {
+  x.play();
+}
+
+soundbutton.addEventListener(
+  'click',
+  function() {
+    playAudio();
   },
   false
 );

@@ -1,4 +1,5 @@
 // Import stylesheets
+
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -13,6 +14,8 @@ let startbutton = document.getElementById('startBtn');
 let startroundsbutton = document.getElementById('startRoundsBtn');
 let soundbutton = document.getElementById('soundBtn');
 
+const body = document.getElementsByTagName('body')[0];
+body.classList.add('bg-primary');
 const headlineDiv = document.getElementById('headline1');
 headlineDiv.innerHTML = `<h1>Fitness Timer</h1>`;
 const counter1Div = document.getElementById('counter1');
@@ -56,9 +59,22 @@ function roundsAction() {
 }
 
 function startTimers() {
+  body.classList.add('bg-primary');
   let timers_interval = setInterval(function() {
     if (timerFirstCopy > 0) {
       timerFirstAction();
+      if (timerFirstCopy === 3) {
+        body.classList.add('bg-info');
+      }
+      if (timerFirstCopy === 2) {
+        body.classList.add('bg-warning');
+      }
+      if (timerFirstCopy === 1) {
+        body.classList.add('bg-danger');
+      }
+      if (timerFirstCopy === 0) {
+        body.classList.add('bg-success');
+      }
     } else {
       // console.log('else');
       // clearInterval(timer_1_interval);

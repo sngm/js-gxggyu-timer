@@ -1,3 +1,5 @@
 # JS Timer
 
-Runs multiple counters ... one by one.
+Runs multiple counters ... 
+- one after one
+- round for round

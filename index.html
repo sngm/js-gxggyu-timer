@@ -1,4 +1,9 @@
-<div id="app" class="bg-primar">
+<audio id="timerAudio">
+  <source src="mixkit-sci-fi-click-900.wav" type="audio/wav" />
+  Your browser does not support the audio element.
+</audio>
+
+<div id="app">
   <div class="container bg-light pb-3">
     <div class="row pt-2 mb-3">
       <div class="col-12">
@@ -6,8 +11,8 @@
       </div>
     </div>
 
-    <div class="row gap-2 mb-3">
-      <div class="col-12 col-md-6">
+    <div class="row mb-3">
+      <div class="col-12 col-md-4">
         <div class="card text-center">
           <div class="card-body">
             <div id="counter1" class="h1">
@@ -17,7 +22,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-4">
         <div class="card text-center">
           <div class="card-body">
             <div id="counter2" class="h1">
@@ -27,18 +32,32 @@
           </div>
         </div>
       </div>
+      <div class="col-12 col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <div id="rounds" class="h1">
+              <span id="roundsDone">0</span>/<span id="rounds">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="row">
       <div id="counterActions" class="d-grid gap-2 col-12">
         <button id="startBtn" class="btn btn-primary">
-          start
+          start timers
+        </button>
+        <button id="startRoundsBtn" class="btn btn-primary">
+          start rounds
         </button>
         <button id="resetBtn" class="btn btn-secondary">
           reset
+        </button>
+        <button id="soundBtn" class="btn btn-info">
+          test wav sound
         </button>
       </div>
     </div>
   </div>
 </div>
-<!-- ./App -->

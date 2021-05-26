@@ -4,10 +4,10 @@ import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Some variables
-let rounds = 2;
+let rounds = 20;
 let roundsDone = 0;
-let timerFirst = 6;
-let timerSecond = 3;
+let timerFirst = 30;
+let timerSecond = 20;
 let timerFirstCopy = timerFirst;
 let timerSecondCopy = timerSecond;
 let startbutton = document.getElementById('startBtn');
@@ -59,8 +59,7 @@ function roundsAction() {
 }
 
 function startTimers() {
-  body.classList.add('bg-primary');
-  let timers_interval = setInterval(function() {
+  let timersInterval = setInterval(function() {
     if (timerFirstCopy > 0) {
       timerFirstAction();
       if (timerFirstCopy === 3) {
@@ -68,27 +67,32 @@ function startTimers() {
       }
       if (timerFirstCopy === 2) {
         body.classList.add('bg-warning');
+        body.classList.remove('bg-info');
       }
       if (timerFirstCopy === 1) {
         body.classList.add('bg-danger');
+        body.classList.remove('bg-warning');
       }
       if (timerFirstCopy === 0) {
         body.classList.add('bg-success');
+        body.classList.remove('bg-danger');
       }
     } else {
       // console.log('else');
-      // clearInterval(timer_1_interval);
     }
     if (timerFirstCopy === 0 && timerSecondCopy > 0) {
+      body.classList.add('bg-primary');
+      body.classList.remove('bg-success');
       timerSecondAction();
     } else {
       // console.log('else 2');
     }
     if (timerFirstCopy === 0 && timerSecondCopy === 0) {
-      clearInterval(timers_interval);
+      clearInterval(timersInterval);
       console.log('Interval Timers gecleart');
       setTimerFirstCopy();
       setTimerSecondCopy();
+      body.classList.add('bg-primary');
     }
   }, 1000);
 }
@@ -96,27 +100,41 @@ function startTimers() {
 function startRounds() {
   let timeout = (timerFirst + timerSecond) * 1000;
 
-  if (roundsDone === 0) {
-    console.log('RoundsDone: ', roundsDone);
-    console.log('Rounds: ', rounds);
-    console.log('if');
-    roundsAction();
-    startTimers();
-  }
-  if (roundsDone != 0 && roundsDone < rounds) {
-    console.log('noch ne Runde');
-    console.log('RoundsDone: ', roundsDone);
-    console.log('Rounds: ', rounds);
+  for (let i = 0; i < rounds; i++) {
+    console.log(i);
     setTimeout(function() {
-      console.log('Im Timeout drin');
       roundsAction();
       startTimers();
-    }, timeout);
-  }
-  if (roundsDone === rounds) {
-    console.log('Fertig');
+    }, timeout * i);
+    if (i === rounds - 1) {
+    }
   }
 }
+
+// function startRounds() {
+//   let timeout = (timerFirst + timerSecond) * 1000;
+
+//   if (roundsDone === 0) {
+//     console.log('RoundsDone: ', roundsDone);
+//     console.log('Rounds: ', rounds);
+//     console.log('if');
+//     roundsAction();
+//     startTimers();
+//   }
+//   if (roundsDone != 0 && roundsDone < rounds) {
+//     console.log('noch ne Runde');
+//     console.log('RoundsDone: ', roundsDone);
+//     console.log('Rounds: ', rounds);
+//     setTimeout(function() {
+//       console.log('Im Timeout drin');
+//       roundsAction();
+//       startTimers();
+//     }, timeout);
+//   }
+//   if (roundsDone === rounds) {
+//     console.log('Fertig');
+//   }
+// }
 
 startbutton.addEventListener(
   'click',

@@ -95,15 +95,18 @@ function startTimers() {
 
 function startRounds() {
   let timeout = (timerFirst + timerSecond) * 1000;
-  console.log('RoundsDone: ', roundsDone);
-  console.log('Rounds: ', rounds);
+
   if (roundsDone === 0) {
+    console.log('RoundsDone: ', roundsDone);
+    console.log('Rounds: ', rounds);
     console.log('if');
     roundsAction();
     startTimers();
   }
   if (roundsDone != 0 && roundsDone < rounds) {
-    console.log('else if');
+    console.log('noch ne Runde');
+    console.log('RoundsDone: ', roundsDone);
+    console.log('Rounds: ', rounds);
     setTimeout(function() {
       console.log('Im Timeout drin');
       roundsAction();

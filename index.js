@@ -115,27 +115,10 @@ function startTimers() {
   let timersInterval = setInterval(function() {
     if (timerFirstCopy > 0) {
       timerFirstAction();
-      if (timerFirstCopy === 3) {
-        body.classList.add('bg-info');
-      }
-      if (timerFirstCopy === 2) {
-        body.classList.add('bg-warning');
-        body.classList.remove('bg-info');
-      }
-      if (timerFirstCopy === 1) {
-        body.classList.add('bg-danger');
-        body.classList.remove('bg-warning');
-      }
-      if (timerFirstCopy === 0) {
-        body.classList.add('bg-success');
-        body.classList.remove('bg-danger');
-      }
     } else {
       // console.log('else');
     }
     if (timerFirstCopy === 0 && timerSecondCopy > 0) {
-      body.classList.add('bg-primary');
-      body.classList.remove('bg-success');
       timerSecondAction();
     } else {
       // console.log('else 2');
@@ -145,7 +128,6 @@ function startTimers() {
       console.log('Interval Timers gecleart');
       setTimerFirstCopy();
       setTimerSecondCopy();
-      body.classList.add('bg-primary');
     }
   }, 1000);
 }

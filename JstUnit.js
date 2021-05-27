@@ -3,6 +3,8 @@ class JstUnit {
     this.name = name;
     this.activities = activities;
   }
+
+  // Unit Start Methode aufbauen
 }
 
 export { JstUnit };

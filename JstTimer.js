@@ -5,6 +5,8 @@ class JstTimer {
     this.timeFirst = timeFirst;
     this.timeSecond = timeSecond;
   }
+
+  // TODO: Timer Start Methode einbauen
 }
 
 export { JstTimer };

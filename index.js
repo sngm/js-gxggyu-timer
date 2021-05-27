@@ -1,5 +1,7 @@
-// Import stylesheets
-
+// Imports
+import { JstUnit as Unit } from './JstUnit.js';
+import { JstActivity as Activity } from './JstActivity.js';
+import { JstTimer as Timer } from './JstTimer.js';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -14,7 +16,58 @@ let startbutton = document.getElementById('startBtn');
 let startroundsbutton = document.getElementById('startRoundsBtn');
 let soundbutton = document.getElementById('soundBtn');
 
-const body = document.getElementsByTagName('body')[0];
+let myFirstActivity = new Activity('Liegestütz', 'myTimer');
+console.log(myFirstActivity);
+let mySecondActivity = new Activity('Superman', 'myTimer');
+console.log(mySecondActivity);
+
+let myUnit = new Unit('My Unit', [myFirstActivity, mySecondActivity]);
+console.log(myUnit);
+
+let myTimer = new Timer('My Timer', 10000, 5000);
+console.log(myTimer);
+
+const app = document.getElementById('app');
+const appUnit = document.getElementById('unit');
+appUnit.innerHTML =
+  '<p><strong>Unit</strong></p>' +
+  '<p>' +
+  myUnit.name +
+  '</p>' +
+  '<p>' +
+  myUnit.activities +
+  '</p>';
+
+const appActivities = document.getElementById('activities');
+appActivities.innerHTML =
+  '<p><strong>Activities</strong></p>' +
+  '<p>' +
+  myFirstActivity.name +
+  '</p>' +
+  '<p>' +
+  myFirstActivity.timer +
+  '</p>' +
+  '<p>' +
+  mySecondActivity.name +
+  '</p>' +
+  '<p>' +
+  mySecondActivity.timer +
+  '</p>';
+
+const appTimer = document.getElementById('timer');
+appTimer.innerHTML =
+  '<p><strong>Timer</strong></p>' +
+  '<p>' +
+  myTimer.name +
+  '</p>' +
+  '<p>' +
+  myTimer.timeFirst +
+  ' ms</p>' +
+  '<p>' +
+  myTimer.timeSecond +
+  ' ms</p>';
+
+/* const body = document.getElementsByTagName('body')[0];
 body.classList.add('bg-primary');
 const headlineDiv = document.getElementById('headline1');
 headlineDiv.innerHTML = `<h1>Fitness Timer</h1>`;
@@ -111,31 +164,6 @@ function startRounds() {
   }
 }
 
-// function startRounds() {
-//   let timeout = (timerFirst + timerSecond) * 1000;
-
-//   if (roundsDone === 0) {
-//     console.log('RoundsDone: ', roundsDone);
-//     console.log('Rounds: ', rounds);
-//     console.log('if');
-//     roundsAction();
-//     startTimers();
-//   }
-//   if (roundsDone != 0 && roundsDone < rounds) {
-//     console.log('noch ne Runde');
-//     console.log('RoundsDone: ', roundsDone);
-//     console.log('Rounds: ', rounds);
-//     setTimeout(function() {
-//       console.log('Im Timeout drin');
-//       roundsAction();
-//       startTimers();
-//     }, timeout);
-//   }
-//   if (roundsDone === rounds) {
-//     console.log('Fertig');
-//   }
-// }
-
 startbutton.addEventListener(
   'click',
   function() {
@@ -150,19 +178,4 @@ startroundsbutton.addEventListener(
     startRounds();
   },
   false
-);
-
-// Add Audio to the show
-// let x = document.getElementById('timerAudio');
-
-// function playAudio() {
-//   x.play();
-// }
-
-// soundbutton.addEventListener(
-//   'click',
-//   function() {
-//     playAudio();
-//   },
-//   false
-// );
+); */
